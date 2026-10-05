@@ -196,7 +196,7 @@ export default function Home() {
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
               <div>
-                <p>足袋は紺または黒の地下足袋で統一してください。</p>
+                <p>足袋は、紺または黒の地下足袋で統一してください。</p>
                 <p className="mt-2 text-sm leading-6 text-slate-500">
                   ※神社集合組は、靴を公民館の下駄箱に置いておくと、公民館に帰着してから履き替えられます。靴を持参するのがおすすめです。
                 </p>
