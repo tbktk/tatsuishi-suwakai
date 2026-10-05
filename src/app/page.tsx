@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       <div className="mx-auto max-w-3xl space-y-6 px-4 py-6 sm:px-8 sm:py-10">
-        <section aria-labelledby="meeting-heading" className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+        <section\n          aria-labelledby="meeting-heading"\n          className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"\n        >
           <div className="border-b border-slate-100 px-5 py-4 sm:px-6">
             <p className="text-xs font-bold tracking-[0.16em] text-red-700">
               まず確認
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-labelledby="tasks-heading" className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6">
+        <section\n          aria-labelledby="tasks-heading"\n          className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6"\n        >
           <p className="text-xs font-bold tracking-[0.16em] text-amber-700">
             神社集合後
           </p>
@@ -95,7 +95,7 @@ export default function Home() {
           </ol>
         </section>
 
-        <section aria-labelledby="clothing-heading" className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6">
+        <section\n          aria-labelledby="clothing-heading"\n          className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6"\n        >
           <p className="text-xs font-bold tracking-[0.16em] text-sky-700">
             服装
           </p>
@@ -112,7 +112,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section aria-labelledby="notes-heading" className="rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6">
+        <section\n          aria-labelledby="notes-heading"\n          className="rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6"\n        >
           <p className="text-xs font-bold tracking-[0.16em] text-amber-800">
             ご協力ください
           </p>
@@ -129,7 +129,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section aria-labelledby="participants-heading" className="rounded-2xl bg-slate-900 p-5 text-white sm:p-6">
+        <section\n          aria-labelledby="participants-heading"\n          className="rounded-2xl bg-slate-900 p-5 text-white sm:p-6"\n        >
           <p className="text-xs font-bold tracking-[0.16em] text-slate-300">
             今年の参加予定
           </p>
