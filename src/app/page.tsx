@@ -4,10 +4,10 @@ import { useState } from "react";
 
 const schedule = [
   { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
-  { time: "13:30", label: "その他の参加者", detail: "諏訪神社集合" },
+  { time: "13:30", label: "神社集合組", detail: "諏訪神社集合" },
   {
     time: "15:50",
-    label: "参加者全員",
+    label: "現地集合組",
     detailPrefix: "現地（",
     linkLabel: "前橋中央駐車場",
     detailSuffix: "）集合",
