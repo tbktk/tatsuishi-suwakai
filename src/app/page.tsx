@@ -460,6 +460,17 @@ export default function Home() {
         <footer className="px-2 py-4 text-center text-sm text-slate-500">
           <p className="font-semibold text-slate-700">立石諏訪会</p>
           <p className="mt-1">前橋まつり 神輿参加者向け案内</p>
+          <p className="mt-3 text-xs text-slate-400">
+            制作：
+            <a
+              href="https://wind-shift.jp/local"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4"
+            >
+              WindShift
+            </a>
+          </p>
         </footer>
       </div>
 
