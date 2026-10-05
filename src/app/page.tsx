@@ -424,7 +424,6 @@ export default function Home() {
             />
           </button>
           <p className="mt-4 leading-7 text-slate-700">
-            参加14団体中、総社町立石諏訪会（諏訪連）は
             <button
               type="button"
               onClick={() => setIsGroupListOpen(true)}
@@ -432,7 +431,7 @@ export default function Home() {
             >
               参加14団体
             </button>
-            に出発します。
+            中、総社町立石諏訪会（諏訪連）は5番目に出発します。
           </p>
         </section>
 
