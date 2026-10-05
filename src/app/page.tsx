@@ -8,7 +8,9 @@ const schedule = [
   {
     time: "15:50",
     label: "参加者全員",
-    detail: "現地集合",
+    detailPrefix: "現地（",
+    linkLabel: "前橋中央駐車場",
+    detailSuffix: "）集合",
     href: "https://maps.app.goo.gl/VWade1oVejywEgs16",
   },
 ];
@@ -75,15 +77,32 @@ export default function Home() {
                 <div>
                   <p className="font-bold text-slate-900">{item.label}</p>
                   {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-flex items-center gap-1 text-sm font-bold text-sky-700 underline decoration-sky-300 underline-offset-4 sm:text-base"
-                    >
-                      {item.detail}
-                      <span aria-hidden="true">↗</span>
-                    </a>
+                    <p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">
+                      {item.detailPrefix}
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-bold text-sky-700 underline decoration-sky-300 underline-offset-4"
+                      >
+                        {item.linkLabel}
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          className="h-4 w-4 shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M14 3h7v7" />
+                          <path d="M10 14 21 3" />
+                          <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                        </svg>
+                      </a>
+                      {item.detailSuffix}
+                    </p>
                   ) : (
                     <p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">
                       {item.detail}
