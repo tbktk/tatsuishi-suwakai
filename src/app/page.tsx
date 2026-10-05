@@ -149,7 +149,7 @@ export default function Home() {
           <ul className="mt-5 space-y-3">
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-              <span>半纏は指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
+              <span>指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
@@ -167,7 +167,12 @@ export default function Home() {
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-              <span>地下足袋は紺または黒で統一してください。</span>
+              <div>
+                <p>地下足袋は紺または黒で統一してください。</p>
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  ※神社集合組は、靴を公民館の下駄箱に置いておくと、公民館に帰着してから履き替えられます。靴を持参するのがおすすめです。
+                </p>
+              </div>
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
