@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const schedule = [
   { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
@@ -33,27 +33,158 @@ type ClothingImage = {
   label: string;
 };
 
+type WeatherForecast = {
+  weatherCode: number;
+  temperatureMax: number;
+  temperatureMin: number;
+  precipitationProbability: number;
+};
+
+const weatherCodeLabel = (code: number) => {
+  if (code === 0) return { icon: "☀️", label: "晴れ" };
+  if (code <= 2) return { icon: "🌤️", label: "晴れ時々くもり" };
+  if (code === 3) return { icon: "☁️", label: "くもり" };
+  if (code === 45 || code === 48) return { icon: "🌫️", label: "霧" };
+  if (code >= 51 && code <= 67) return { icon: "🌧️", label: "雨" };
+  if (code >= 71 && code <= 77) return { icon: "🌨️", label: "雪" };
+  if (code >= 80 && code <= 82) return { icon: "🌦️", label: "にわか雨" };
+  if (code >= 85 && code <= 86) return { icon: "🌨️", label: "にわか雪" };
+  if (code >= 95) return { icon: "⛈️", label: "雷雨" };
+  return { icon: "🌥️", label: "天気" };
+};
+
 export default function Home() {
   const [clothingImage, setClothingImage] = useState<ClothingImage | null>(null);
+  const [weather, setWeather] = useState<WeatherForecast | null>(null);
+  const [weatherError, setWeatherError] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadWeather = async () => {
+      try {
+        const params = new URLSearchParams({
+          latitude: "36.39",
+          longitude: "139.06",
+          daily:
+            "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+          timezone: "Asia/Tokyo",
+          start_date: "2026-10-10",
+          end_date: "2026-10-10",
+        });
+
+        const response = await fetch(
+          `https://api.open-meteo.com/v1/forecast?${params.toString()}`,
+          { signal: controller.signal },
+        );
+
+        if (!response.ok) {
+          throw new Error("Weather request failed");
+        }
+
+        const data = (await response.json()) as {
+          daily?: {
+            weather_code?: number[];
+            temperature_2m_max?: number[];
+            temperature_2m_min?: number[];
+            precipitation_probability_max?: number[];
+          };
+        };
+
+        const daily = data.daily;
+        if (
+          !daily?.weather_code?.length ||
+          !daily.temperature_2m_max?.length ||
+          !daily.temperature_2m_min?.length ||
+          !daily.precipitation_probability_max?.length
+        ) {
+          throw new Error("Weather data unavailable");
+        }
+
+        setWeather({
+          weatherCode: daily.weather_code[0],
+          temperatureMax: daily.temperature_2m_max[0],
+          temperatureMin: daily.temperature_2m_min[0],
+          precipitationProbability: daily.precipitation_probability_max[0],
+        });
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+        setWeatherError(true);
+      }
+    };
+
+    void loadWeather();
+
+    return () => controller.abort();
+  }, []);
 
   return (
     <main className="min-h-screen bg-stone-50 text-slate-900">
       <section className="border-b border-red-900/10 bg-[linear-gradient(135deg,#7f1d1d_0%,#991b1b_52%,#5f1212_100%)] text-white">
         <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
-          <p className="text-sm font-semibold tracking-[0.18em] text-red-100">
-            立石諏訪会
-          </p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
-            前橋まつり
-            <span className="mt-1 block">神輿担ぎのお知らせ</span>
-          </h1>
-          <p className="mt-4 text-base font-medium text-red-50 sm:text-lg">
-            2026年10月10日（土）
-          </p>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-red-100 sm:text-base">
-            集合時刻・当日の作業・服装・注意事項をまとめています。
-            当日はこのページをご確認ください。
-          </p>
+          <div className="sm:flex sm:items-start sm:justify-between sm:gap-8">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold tracking-[0.18em] text-red-100">
+                立石諏訪会
+              </p>
+              <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
+                前橋まつり
+                <span className="mt-1 block">神輿担ぎのお知らせ</span>
+              </h1>
+              <p className="mt-4 text-base font-medium text-red-50 sm:text-lg">
+                2026年10月10日（土）
+              </p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-red-100 sm:text-base">
+                集合時刻・当日の作業・服装・注意事項をまとめています。
+                当日はこのページをご確認ください。
+              </p>
+            </div>
+
+            <div className="mt-6 shrink-0 sm:mt-0 sm:w-48">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4 shadow-lg backdrop-blur-sm">
+                <p className="text-xs font-bold tracking-[0.12em] text-red-100">
+                  10/10 前橋市の天気
+                </p>
+                {weather ? (
+                  <>
+                    <div className="mt-2 flex items-center gap-3">
+                      <span className="text-4xl" aria-hidden="true">
+                        {weatherCodeLabel(weather.weatherCode).icon}
+                      </span>
+                      <div>
+                        <p className="font-bold text-white">
+                          {weatherCodeLabel(weather.weatherCode).label}
+                        </p>
+                        <p className="mt-1 text-sm text-red-50">
+                          最高 {Math.round(weather.temperatureMax)}℃ / 最低{" "}
+                          {Math.round(weather.temperatureMin)}℃
+                        </p>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm font-medium text-red-50">
+                      降水確率 {weather.precipitationProbability}%
+                    </p>
+                  </>
+                ) : weatherError ? (
+                  <p className="mt-3 text-sm text-red-100">
+                    天気予報を取得できませんでした
+                  </p>
+                ) : (
+                  <p className="mt-3 text-sm text-red-100">天気予報を取得中…</p>
+                )}
+                <a
+                  href="https://open-meteo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-[11px] text-red-100 underline decoration-white/40 underline-offset-2"
+                >
+                  Weather data: Open-Meteo
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
