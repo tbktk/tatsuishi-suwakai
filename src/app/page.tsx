@@ -27,17 +27,6 @@ const notes = [
 
 export default function Home() {
   const [isHaraGakeOpen, setIsHaraGakeOpen] = useState(false);
-  const [haraGakeImage, setHaraGakeImage] = useState<string | null>(null);
-
-  const openHaraGake = async () => {
-    if (!haraGakeImage) {
-      const response = await fetch("./harapake.b64");
-      const base64 = await response.text();
-      setHaraGakeImage(`data:image/jpeg;base64,${base64.trim()}`);
-    }
-
-    setIsHaraGakeOpen(true);
-  };
 
   return (
     <main className="min-h-screen bg-stone-50 text-slate-900">
@@ -149,7 +138,7 @@ export default function Home() {
                 鯉口シャツ・ダボシャツを着用する場合は、
                 <button
                   type="button"
-                  onClick={openHaraGake}
+                  onClick={() => setIsHaraGakeOpen(true)}
                   className="font-bold text-sky-700 underline decoration-sky-300 underline-offset-4"
                 >
                   腹掛け
@@ -225,17 +214,11 @@ export default function Home() {
             className="absolute inset-0 bg-black/70"
           />
           <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-2xl bg-white p-3 shadow-2xl">
-            {haraGakeImage ? (
-              <img
-                src={haraGakeImage}
-                alt="紺色の腹掛け"
-                className="h-auto w-full rounded-xl"
-              />
-            ) : (
-              <div className="flex aspect-square items-center justify-center text-sm text-slate-500">
-                読み込み中...
-              </div>
-            )}
+            <img
+              src="./images/haragake.jpg"
+              alt="紺色の腹掛け"
+              className="h-auto w-full rounded-xl"
+            />
           </div>
         </div>
       )}
