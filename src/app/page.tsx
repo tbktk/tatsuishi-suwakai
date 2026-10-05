@@ -28,7 +28,7 @@ const notes = [
 ];
 
 const mikoshiGroups = [
-  { no: "先遣", name: "前橋市伝統文化保存会", adults: null, children: null },
+  { no: "先遣", name: "前橋鳶伝統文化保存会", adults: null, children: null },
   { no: "1", name: "本町二丁目自治会", adults: 60, children: 0 },
   { no: "2", name: "堅町商交会", adults: 90, children: 0 },
   { no: "3", name: "前橋市職員共済会", adults: 170, children: 0 },
