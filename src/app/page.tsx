@@ -177,6 +177,12 @@ export default function Home() {
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
               <span>
+                神輿を担ぐ際の肩当て用に、厚手のフェイスタオルを持参するのをおすすめします。
+              </span>
+            </li>
+            <li className="flex gap-3 leading-7 text-slate-700">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+              <span>
                 服装が指定から大きく外れている場合、当日に確認や参加見合わせをお願いすることがあります。
               </span>
             </li>
