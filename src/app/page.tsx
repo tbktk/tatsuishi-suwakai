@@ -1,69 +1,151 @@
-import Image from "next/image";
+const schedule = [
+  { time: "12:00", label: "本部役員・班長以上", detail: "神社集合" },
+  { time: "13:30", label: "その他の参加者", detail: "神社集合" },
+  { time: "15:50", label: "参加者全員", detail: "現地集合" },
+];
+
+const tasks = [
+  "神輿や食料品など、当日使用する物品の準備",
+  "準備した物品をトラックへ積み込み",
+  "出発式終了後、送迎バスで現地へ移動",
+];
+
+const clothingRules = [
+  "半纏は指定の「ネジリ」を着用してください。",
+  "鯉口シャツ・ダボシャツを着用する場合は、腹掛けの下に着用してください。",
+  "地下足袋は紺または黒で統一してください。",
+  "服装が指定から大きく外れている場合、当日に確認や参加見合わせをお願いすることがあります。",
+];
+
+const notes = [
+  "参加者の中から、本部がリアカー係をお願いする場合があります。",
+  "事故や怪我の防止のため、参加者以外の方の飲酒・飲食はご遠慮ください。",
+  "参加者からは参加費をお預かりしています。皆さまのご理解とご協力をお願いします。",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="min-h-screen bg-stone-50 text-slate-900">
+      <section className="border-b border-red-900/10 bg-[linear-gradient(135deg,#7f1d1d_0%,#991b1b_52%,#5f1212_100%)] text-white">
+        <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
+          <p className="text-sm font-semibold tracking-[0.18em] text-red-100">
+            立石諏訪会
+          </p>
+          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-5xl">
+            前橋まつり
+            <span className="mt-1 block">神輿担ぎのお知らせ</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 text-base font-medium text-red-50 sm:text-lg">
+            2026年10月10日（土）
+          </p>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-red-100 sm:text-base">
+            集合時刻・当日の作業・服装・注意事項をまとめています。
+            当日はこのページをご確認ください。
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <div className="mx-auto max-w-3xl space-y-6 px-4 py-6 sm:px-8 sm:py-10">
+        <section aria-labelledby="meeting-heading" className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+          <div className="border-b border-slate-100 px-5 py-4 sm:px-6">
+            <p className="text-xs font-bold tracking-[0.16em] text-red-700">
+              まず確認
+            </p>
+            <h2 id="meeting-heading" className="mt-1 text-2xl font-bold">
+              集合時刻・集合場所
+            </h2>
+          </div>
+
+          <div className="divide-y divide-slate-100">
+            {schedule.map((item) => (
+              <div
+                key={item.time}
+                className="grid grid-cols-[82px_1fr] gap-4 px-5 py-5 sm:grid-cols-[110px_1fr] sm:px-6"
+              >
+                <p className="text-2xl font-black tabular-nums text-red-700 sm:text-3xl">
+                  {item.time}
+                </p>
+                <div>
+                  <p className="font-bold text-slate-900">{item.label}</p>
+                  <p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">
+                    {item.detail}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="tasks-heading" className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6">
+          <p className="text-xs font-bold tracking-[0.16em] text-amber-700">
+            神社集合後
+          </p>
+          <h2 id="tasks-heading" className="mt-1 text-2xl font-bold">
+            当日の作業
+          </h2>
+          <ol className="mt-5 space-y-4">
+            {tasks.map((task, index) => (
+              <li key={task} className="flex gap-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-bold text-amber-900">
+                  {index + 1}
+                </span>
+                <p className="pt-0.5 leading-7 text-slate-700">{task}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section aria-labelledby="clothing-heading" className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6">
+          <p className="text-xs font-bold tracking-[0.16em] text-sky-700">
+            服装
+          </p>
+          <h2 id="clothing-heading" className="mt-1 text-2xl font-bold">
+            当日の服装について
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {clothingRules.map((rule) => (
+              <li key={rule} className="flex gap-3 leading-7 text-slate-700">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+                <span>{rule}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section aria-labelledby="notes-heading" className="rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6">
+          <p className="text-xs font-bold tracking-[0.16em] text-amber-800">
+            ご協力ください
+          </p>
+          <h2 id="notes-heading" className="mt-1 text-2xl font-bold">
+            注意事項
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {notes.map((note) => (
+              <li key={note} className="flex gap-3 leading-7 text-slate-800">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-600" />
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section aria-labelledby="participants-heading" className="rounded-2xl bg-slate-900 p-5 text-white sm:p-6">
+          <p className="text-xs font-bold tracking-[0.16em] text-slate-300">
+            今年の参加予定
+          </p>
+          <h2 id="participants-heading" className="mt-1 text-2xl font-bold">
+            総勢93名で参加します
+          </h2>
+          <p className="mt-4 leading-7 text-slate-200">
+            諏訪会員29名に加え、立石地域から自治会・公民館・氏子・獅子舞保存会などの皆さんが参加予定です。
+          </p>
+        </section>
+
+        <footer className="px-2 py-4 text-center text-sm text-slate-500">
+          <p className="font-semibold text-slate-700">立石諏訪会</p>
+          <p className="mt-1">前橋まつり 神輿参加者向け案内</p>
+        </footer>
+      </div>
+    </main>
   );
 }
