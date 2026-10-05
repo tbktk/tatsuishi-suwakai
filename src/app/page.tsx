@@ -1,20 +1,22 @@
+"use client";
+
+import { useState } from "react";
+
 const schedule = [
-  { time: "12:00", label: "本部役員・班長以上", detail: "神社集合" },
-  { time: "13:30", label: "その他の参加者", detail: "神社集合" },
-  { time: "15:50", label: "参加者全員", detail: "現地集合" },
+  { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
+  { time: "13:30", label: "その他の参加者", detail: "諏訪神社集合" },
+  {
+    time: "15:50",
+    label: "参加者全員",
+    detail: "現地集合",
+    href: "https://maps.app.goo.gl/VWade1oVejywEgs16",
+  },
 ];
 
 const tasks = [
   "神輿や食料品など、当日使用する物品の準備",
   "準備した物品をトラックへ積み込み",
   "出発式終了後、送迎バスで現地へ移動",
-];
-
-const clothingRules = [
-  "半纏は指定の「ネジリ」を着用してください。",
-  "鯉口シャツ・ダボシャツを着用する場合は、腹掛けの下に着用してください。",
-  "地下足袋は紺または黒で統一してください。",
-  "服装が指定から大きく外れている場合、当日に確認や参加見合わせをお願いすることがあります。",
 ];
 
 const notes = [
@@ -24,6 +26,19 @@ const notes = [
 ];
 
 export default function Home() {
+  const [isHaraGakeOpen, setIsHaraGakeOpen] = useState(false);
+  const [haraGakeImage, setHaraGakeImage] = useState<string | null>(null);
+
+  const openHaraGake = async () => {
+    if (!haraGakeImage) {
+      const response = await fetch("./harapake.b64");
+      const base64 = await response.text();
+      setHaraGakeImage(`data:image/jpeg;base64,${base64.trim()}`);
+    }
+
+    setIsHaraGakeOpen(true);
+  };
+
   return (
     <main className="min-h-screen bg-stone-50 text-slate-900">
       <section className="border-b border-red-900/10 bg-[linear-gradient(135deg,#7f1d1d_0%,#991b1b_52%,#5f1212_100%)] text-white">
@@ -70,9 +85,21 @@ export default function Home() {
                 </p>
                 <div>
                   <p className="font-bold text-slate-900">{item.label}</p>
-                  <p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">
-                    {item.detail}
-                  </p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex items-center gap-1 text-sm font-bold text-sky-700 underline decoration-sky-300 underline-offset-4 sm:text-base"
+                    >
+                      {item.detail}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    <p className="mt-1 text-sm font-medium text-slate-600 sm:text-base">
+                      {item.detail}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -84,7 +111,7 @@ export default function Home() {
           className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6"
         >
           <p className="text-xs font-bold tracking-[0.16em] text-amber-700">
-            神社集合後
+            諏訪神社集合後
           </p>
           <h2 id="tasks-heading" className="mt-1 text-2xl font-bold">
             当日の作業
@@ -112,12 +139,34 @@ export default function Home() {
             当日の服装について
           </h2>
           <ul className="mt-5 space-y-3">
-            {clothingRules.map((rule) => (
-              <li key={rule} className="flex gap-3 leading-7 text-slate-700">
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-                <span>{rule}</span>
-              </li>
-            ))}
+            <li className="flex gap-3 leading-7 text-slate-700">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+              <span>半纏は指定の「ネジリ」を着用してください。</span>
+            </li>
+            <li className="flex gap-3 leading-7 text-slate-700">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+              <span>
+                鯉口シャツ・ダボシャツを着用する場合は、
+                <button
+                  type="button"
+                  onClick={openHaraGake}
+                  className="font-bold text-sky-700 underline decoration-sky-300 underline-offset-4"
+                >
+                  腹掛け
+                </button>
+                の下に着用してください。
+              </span>
+            </li>
+            <li className="flex gap-3 leading-7 text-slate-700">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+              <span>地下足袋は紺または黒で統一してください。</span>
+            </li>
+            <li className="flex gap-3 leading-7 text-slate-700">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
+              <span>
+                服装が指定から大きく外れている場合、当日に確認や参加見合わせをお願いすることがあります。
+              </span>
+            </li>
           </ul>
         </section>
 
@@ -161,6 +210,35 @@ export default function Home() {
           <p className="mt-1">前橋まつり 神輿参加者向け案内</p>
         </footer>
       </div>
+
+      {isHaraGakeOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="腹掛けの画像"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        >
+          <button
+            type="button"
+            aria-label="画像を閉じる"
+            onClick={() => setIsHaraGakeOpen(false)}
+            className="absolute inset-0 bg-black/70"
+          />
+          <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-2xl bg-white p-3 shadow-2xl">
+            {haraGakeImage ? (
+              <img
+                src={haraGakeImage}
+                alt="紺色の腹掛け"
+                className="h-auto w-full rounded-xl"
+              />
+            ) : (
+              <div className="flex aspect-square items-center justify-center text-sm text-slate-500">
+                読み込み中...
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
