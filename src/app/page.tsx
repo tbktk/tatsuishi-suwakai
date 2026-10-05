@@ -54,7 +54,9 @@ const weatherCodeLabel = (code: number) => {
 };
 
 export default function Home() {
-  const [clothingImage, setClothingImage] = useState<ClothingImage | null>(null);
+  const [clothingImage, setClothingImage] = useState<ClothingImage | null>(
+    null,
+  );
   const [weather, setWeather] = useState<WeatherForecast | null>(null);
   const [weatherError, setWeatherError] = useState(false);
 
