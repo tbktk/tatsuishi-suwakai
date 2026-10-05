@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 
 const schedule = [
   { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
-  { time: "13:30", label: "神社集合組", detail: "諏訪神社集合" },
+  {
+    time: "13:30",
+    label: "神社集合組",
+    detailPrefix: "",
+    linkLabel: "諏訪神社",
+    detailSuffix: "集合",
+    href: "https://maps.app.goo.gl/yL7esQ54vigho3MC6",
+  },
   {
     time: "15:50",
     label: "現地集合組",
