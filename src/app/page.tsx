@@ -27,7 +27,7 @@ const notes = [
   "参加者からは参加費をお支払いいただいておりますので、参加者以外の飲食については節度をもった対応をお願いします。",
 ];
 
-type ClothingImage = {
+type PopupImage = {
   src: string;
   alt: string;
   label: string;
@@ -54,9 +54,7 @@ const weatherCodeLabel = (code: number) => {
 };
 
 export default function Home() {
-  const [clothingImage, setClothingImage] = useState<ClothingImage | null>(
-    null,
-  );
+  const [popupImage, setPopupImage] = useState<PopupImage | null>(null);
   const [weather, setWeather] = useState<WeatherForecast | null>(null);
   const [weatherError, setWeatherError] = useState(false);
 
@@ -293,7 +291,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() =>
-                    setClothingImage({
+                    setPopupImage({
                       src: "./images/tenugui.png",
                       alt: "指定の手ぬぐい",
                       label: "指定の手ぬぐい",
@@ -313,7 +311,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() =>
-                    setClothingImage({
+                    setPopupImage({
                       src: "./images/haragake.jpg",
                       alt: "紺色の腹掛け",
                       label: "腹掛け",
@@ -371,6 +369,38 @@ export default function Home() {
         </section>
 
         <section
+          aria-labelledby="route-heading"
+          className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-6"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-emerald-700">
+            順路
+          </p>
+          <h2 id="route-heading" className="mt-1 text-2xl font-bold">
+            大人みこし行進順路
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            画像をタップすると大きく表示できます。
+          </p>
+          <button
+            type="button"
+            onClick={() =>
+              setPopupImage({
+                src: "./images/mikoshi-route.png",
+                alt: "大人みこし行進順路",
+                label: "大人みこし行進順路",
+              })
+            }
+            className="mt-4 block w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-left shadow-sm transition hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+          >
+            <img
+              src="./images/mikoshi-route.png"
+              alt="大人みこし行進順路"
+              className="h-auto w-full"
+            />
+          </button>
+        </section>
+
+        <section
           aria-labelledby="participants-heading"
           className="rounded-2xl bg-slate-900 p-5 text-white sm:p-6"
         >
@@ -391,23 +421,23 @@ export default function Home() {
         </footer>
       </div>
 
-      {clothingImage && (
+      {popupImage && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${clothingImage.label}の画像`}
+          aria-label={`${popupImage.label}の画像`}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
           <button
             type="button"
             aria-label="画像を閉じる"
-            onClick={() => setClothingImage(null)}
+            onClick={() => setPopupImage(null)}
             className="absolute inset-0 bg-black/70"
           />
-          <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-2xl bg-white p-3 shadow-2xl">
+          <div className="relative z-10 max-h-[90vh] w-full max-w-5xl overflow-auto rounded-2xl bg-white p-3 shadow-2xl">
             <img
-              src={clothingImage.src}
-              alt={clothingImage.alt}
+              src={popupImage.src}
+              alt={popupImage.alt}
               className="h-auto w-full rounded-xl"
             />
           </div>
