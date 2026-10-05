@@ -71,7 +71,7 @@ export default function Home() {
                 key={item.time}
                 className="grid grid-cols-[82px_1fr] gap-4 px-5 py-5 sm:grid-cols-[110px_1fr] sm:px-6"
               >
-                <p className="text-2xl font-black tabular-nums text-red-700 sm:text-3xl">
+                <p className="font-time text-2xl font-black tabular-nums text-red-700 sm:text-3xl">
                   {item.time}
                 </p>
                 <div>
