@@ -27,8 +27,14 @@ const notes = [
   "参加者からは参加費をお支払いいただいておりますので、参加者以外の飲食については節度をもった対応をお願いします。",
 ];
 
+type ClothingImage = {
+  src: string;
+  alt: string;
+  label: string;
+};
+
 export default function Home() {
-  const [isHaraGakeOpen, setIsHaraGakeOpen] = useState(false);
+  const [clothingImage, setClothingImage] = useState<ClothingImage | null>(null);
 
   return (
     <main className="min-h-screen bg-stone-50 text-slate-900">
@@ -149,7 +155,23 @@ export default function Home() {
           <ul className="mt-5 space-y-3">
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-              <span>頭部には、指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
+              <span>
+                頭部には、
+                <button
+                  type="button"
+                  onClick={() =>
+                    setClothingImage({
+                      src: "./images/tenugui.png",
+                      alt: "指定の手ぬぐい",
+                      label: "指定の手ぬぐい",
+                    })
+                  }
+                  className="font-bold text-sky-700 underline decoration-sky-300 underline-offset-4"
+                >
+                  指定の手ぬぐい
+                </button>
+                を「ねじり鉢巻き」にして着用してください。
+              </span>
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
@@ -157,7 +179,13 @@ export default function Home() {
                 鯉口シャツ・ダボシャツを着用する場合は、
                 <button
                   type="button"
-                  onClick={() => setIsHaraGakeOpen(true)}
+                  onClick={() =>
+                    setClothingImage({
+                      src: "./images/haragake.jpg",
+                      alt: "紺色の腹掛け",
+                      label: "腹掛け",
+                    })
+                  }
                   className="font-bold text-sky-700 underline decoration-sky-300 underline-offset-4"
                 >
                   腹掛け
@@ -230,23 +258,23 @@ export default function Home() {
         </footer>
       </div>
 
-      {isHaraGakeOpen && (
+      {clothingImage && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="腹掛けの画像"
+          aria-label={`${clothingImage.label}の画像`}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
           <button
             type="button"
             aria-label="画像を閉じる"
-            onClick={() => setIsHaraGakeOpen(false)}
+            onClick={() => setClothingImage(null)}
             className="absolute inset-0 bg-black/70"
           />
           <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-2xl bg-white p-3 shadow-2xl">
             <img
-              src="./images/haragake.jpg"
-              alt="紺色の腹掛け"
+              src={clothingImage.src}
+              alt={clothingImage.alt}
               className="h-auto w-full rounded-xl"
             />
           </div>
