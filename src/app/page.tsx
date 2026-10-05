@@ -27,6 +27,30 @@ const notes = [
   "参加者からは参加費をお支払いいただいておりますので、参加者以外の飲食については節度をもった対応をお願いします。",
 ];
 
+const mikoshiGroups = [
+  { no: "先遣", name: "前橋市伝統文化保存会", adults: null, children: null },
+  { no: "1", name: "本町二丁目自治会", adults: 60, children: 0 },
+  { no: "2", name: "堅町商交会", adults: 90, children: 0 },
+  { no: "3", name: "前橋市職員共済会", adults: 170, children: 0 },
+  { no: "4", name: "紅勇連", adults: 50, children: 15 },
+  {
+    no: "5",
+    name: "総社町立石諏訪会（諏訪連）",
+    adults: 90,
+    children: 0,
+    highlight: true,
+  },
+  { no: "6", name: "（株）一条工務店群馬", adults: 230, children: 30 },
+  { no: "7", name: "（株）東和銀行", adults: 250, children: 0 },
+  { no: "8", name: "（株）群馬銀行（本店営業部）", adults: 120, children: 0 },
+  { no: "9", name: "しののめ信用金庫", adults: 150, children: 0 },
+  { no: "10", name: "千熊翔鳳會", adults: 200, children: 30 },
+  { no: "11", name: "前橋機械金属工業協同組合", adults: 60, children: 0 },
+  { no: "12", name: "（株）メモリードグループ", adults: 150, children: 0 },
+  { no: "13", name: "三山會神輿愛好會", adults: 860, children: 90 },
+  { no: "14", name: "前橋商工会議所青年部", adults: 80, children: 20 },
+];
+
 type PopupImage = {
   src: string;
   alt: string;
@@ -55,6 +79,7 @@ const weatherCodeLabel = (code: number) => {
 
 export default function Home() {
   const [popupImage, setPopupImage] = useState<PopupImage | null>(null);
+  const [isGroupListOpen, setIsGroupListOpen] = useState(false);
   const [weather, setWeather] = useState<WeatherForecast | null>(null);
   const [weatherError, setWeatherError] = useState(false);
 
@@ -398,6 +423,17 @@ export default function Home() {
               className="h-auto w-full"
             />
           </button>
+          <p className="mt-4 leading-7 text-slate-700">
+            総社町立石諏訪会（諏訪連）は、
+            <button
+              type="button"
+              onClick={() => setIsGroupListOpen(true)}
+              className="font-bold text-emerald-700 underline decoration-emerald-300 underline-offset-4"
+            >
+              参加14団体
+            </button>
+            中5番目に出発します。
+          </p>
         </section>
 
         <section
@@ -440,6 +476,103 @@ export default function Home() {
               alt={popupImage.alt}
               className="h-auto w-full rounded-xl"
             />
+          </div>
+        </div>
+      )}
+
+      {isGroupListOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="group-list-heading"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        >
+          <button
+            type="button"
+            aria-label="参加団体一覧を閉じる"
+            onClick={() => setIsGroupListOpen(false)}
+            className="absolute inset-0 bg-black/70"
+          />
+          <div className="relative z-10 max-h-[90vh] w-full max-w-4xl overflow-auto rounded-2xl bg-white p-4 shadow-2xl sm:p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold tracking-[0.16em] text-emerald-700">
+                  10月10日（土）
+                </p>
+                <h2
+                  id="group-list-heading"
+                  className="mt-1 text-2xl font-bold text-slate-900"
+                >
+                  大人みこし 参加団体
+                </h2>
+                <p className="mt-2 text-sm text-slate-600">
+                  総社町立石諏訪会（諏訪連）は5番目です。
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsGroupListOpen(false)}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xl font-bold text-slate-700"
+                aria-label="閉じる"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="mt-5 overflow-x-auto">
+              <table className="w-full min-w-[620px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-slate-900 text-white">
+                    <th className="border border-slate-300 px-3 py-2 text-center">
+                      No.
+                    </th>
+                    <th className="border border-slate-300 px-3 py-2 text-left">
+                      団体名
+                    </th>
+                    <th className="border border-slate-300 px-3 py-2 text-left">
+                      参加人数
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {mikoshiGroups.map((group) => (
+                    <tr
+                      key={`${group.no}-${group.name}`}
+                      className={
+                        group.highlight
+                          ? "bg-emerald-50 font-bold text-emerald-950"
+                          : "bg-white text-slate-800"
+                      }
+                    >
+                      <td className="border border-slate-300 px-3 py-2 text-center">
+                        {group.no}
+                      </td>
+                      <td className="border border-slate-300 px-3 py-2">
+                        {group.name}
+                      </td>
+                      <td className="border border-slate-300 px-3 py-2">
+                        {group.adults === null
+                          ? "—"
+                          : `大人 ${group.adults}　子供 ${group.children}`}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className="bg-slate-100 font-bold text-slate-900">
+                    <td
+                      colSpan={2}
+                      className="border border-slate-300 px-3 py-2 text-center"
+                    >
+                      参加団体数：14団体
+                    </td>
+                    <td className="border border-slate-300 px-3 py-2 text-center">
+                      参加人数：2,745人
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
           </div>
         </div>
       )}
