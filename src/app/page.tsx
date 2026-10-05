@@ -23,7 +23,7 @@ const tasks = [
 
 const notes = [
   "参加者の中から、本部がリアカー係をお願いする場合があります。",
-  "事故や怪我の防止のため、参加者以外の方の飲酒・飲食はご遠慮ください。",
+  "事故や保険の面から、法被を着用していない「参加者でない方」による運搬・配布は禁止します。万一、事故やけがが発生した場合、諏訪会では責任を負いかねます。",
   "参加者からは参加費をお預かりしています。皆さまのご理解とご協力をお願いします。",
 ];
 
@@ -149,7 +149,7 @@ export default function Home() {
           <ul className="mt-5 space-y-3">
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-              <span>半纏は指定の「ネジリ」を着用してください。</span>
+              <span>半纏は指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
