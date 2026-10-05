@@ -149,7 +149,7 @@ export default function Home() {
           <ul className="mt-5 space-y-3">
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
-              <span>指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
+              <span>頭部には、指定の手ぬぐいを「ねじり鉢巻き」にして着用してください。</span>
             </li>
             <li className="flex gap-3 leading-7 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-600" />
