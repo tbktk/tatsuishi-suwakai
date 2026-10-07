@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import type { FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
