@@ -121,7 +121,14 @@ export default function MembershipApplicationPage() {
               <label htmlFor="name" className="font-bold">
                 氏名 <span className="text-red-700">必須</span>
               </label>
-              <input id="name" name="name" required autoComplete="name" className={inputClass} />
+              <input
+                id="name"
+                name="name"
+                required
+                autoComplete="name"
+                placeholder="諏訪 太郎"
+                className={inputClass}
+              />
             </div>
 
             <div>
@@ -133,7 +140,7 @@ export default function MembershipApplicationPage() {
                 name="nameKana"
                 required
                 autoComplete="off"
-                placeholder="たべい かつあき"
+                placeholder="すわ たろう"
                 className={inputClass}
               />
             </div>
@@ -142,14 +149,31 @@ export default function MembershipApplicationPage() {
               <label htmlFor="email" className="font-bold">
                 メールアドレス <span className="text-red-700">必須</span>
               </label>
-              <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="suwa.taro@example.com"
+                className={inputClass}
+              />
             </div>
 
             <div>
               <label htmlFor="phone" className="font-bold">
                 電話番号 <span className="text-red-700">必須</span>
               </label>
-              <input id="phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={inputClass} />
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                autoComplete="tel"
+                inputMode="tel"
+                placeholder="09012345678"
+                className={inputClass}
+              />
             </div>
 
             <fieldset className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -159,19 +183,50 @@ export default function MembershipApplicationPage() {
               <div className="mt-2 grid gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="prefecture" className="text-sm font-bold">都道府県</label>
-                  <input id="prefecture" name="prefecture" required defaultValue="群馬県" autoComplete="address-level1" className={inputClass} />
+                  <input
+                    id="prefecture"
+                    name="prefecture"
+                    required
+                    defaultValue="群馬県"
+                    placeholder="群馬県"
+                    autoComplete="address-level1"
+                    className={inputClass}
+                  />
                 </div>
                 <div>
                   <label htmlFor="city" className="text-sm font-bold">市区町村</label>
-                  <input id="city" name="city" required defaultValue="前橋市" autoComplete="address-level2" className={inputClass} />
+                  <input
+                    id="city"
+                    name="city"
+                    required
+                    defaultValue="前橋市"
+                    placeholder="前橋市"
+                    autoComplete="address-level2"
+                    className={inputClass}
+                  />
                 </div>
                 <div>
                   <label htmlFor="town" className="text-sm font-bold">町名</label>
-                  <input id="town" name="town" required defaultValue="総社町植野" autoComplete="address-level3" className={inputClass} />
+                  <input
+                    id="town"
+                    name="town"
+                    required
+                    defaultValue="総社町植野"
+                    placeholder="総社町植野"
+                    autoComplete="address-level3"
+                    className={inputClass}
+                  />
                 </div>
                 <div>
                   <label htmlFor="addressLine" className="text-sm font-bold">番地・建物名</label>
-                  <input id="addressLine" name="addressLine" required autoComplete="street-address" className={inputClass} />
+                  <input
+                    id="addressLine"
+                    name="addressLine"
+                    required
+                    autoComplete="street-address"
+                    placeholder="1-1-1 立石ハイツ101号"
+                    className={inputClass}
+                  />
                 </div>
               </div>
             </fieldset>
