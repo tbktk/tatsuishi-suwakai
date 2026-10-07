@@ -194,24 +194,24 @@ export default function JoinPage() {
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
             <a
               href="./apply/"
-              className="rounded-2xl bg-emerald-800 p-5 text-white shadow-sm transition hover:bg-emerald-900"
+              className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-slate-900 shadow-sm transition hover:bg-emerald-100"
             >
-              <p className="text-lg font-black">入会を申し込む</p>
-              <p className="mt-2 text-sm leading-6 text-emerald-50">
+              <p className="text-lg font-black text-emerald-950">入会を申し込む</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
                 氏名・連絡先・住所を入力して申込みを送信します。
               </p>
-              <p className="mt-4 font-bold">申込みフォームへ →</p>
+              <p className="mt-4 font-bold text-emerald-800">申込みフォームへ →</p>
             </a>
 
             <a
               href="../contact/"
-              className="rounded-2xl border border-sky-200 bg-sky-50 p-5 text-slate-900 shadow-sm transition hover:bg-sky-100"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-slate-900 shadow-sm transition hover:bg-slate-100"
             >
-              <p className="text-lg font-black">まず質問・相談したい</p>
+              <p className="text-lg font-black text-slate-950">まず質問・相談したい</p>
               <p className="mt-2 text-sm leading-6 text-slate-600">
                 活動内容や入会について、確認したいことを送れます。
               </p>
-              <p className="mt-4 font-bold text-sky-800">問い合わせフォームへ →</p>
+              <p className="mt-4 font-bold text-slate-700">問い合わせフォームへ →</p>
             </a>
           </div>
         </section>
