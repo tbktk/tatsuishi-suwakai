@@ -6,6 +6,14 @@ import type { FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
+function normalizeHalfWidthSpaces(value: string) {
+  return value.replace(/　/g, " ").trim();
+}
+
+function removeAllSpaces(value: string) {
+  return value.replace(/[ 　]/g, "");
+}
+
 function createSubmissionToken() {
   if (typeof globalThis.crypto?.randomUUID === "function") {
     return globalThis.crypto.randomUUID();
@@ -56,14 +64,14 @@ export default function MembershipApplicationPage() {
 
     const payload = {
       submissionToken: submissionToken.current,
-      name: String(form.get("name") ?? "").trim(),
-      nameKana: String(form.get("nameKana") ?? "").replace(/　/g, " ").trim(),
-      email: String(form.get("email") ?? "").trim(),
-      phone: String(form.get("phone") ?? "").trim(),
-      prefecture: String(form.get("prefecture") ?? "").trim(),
-      city: String(form.get("city") ?? "").trim(),
-      town: String(form.get("town") ?? "").trim(),
-      addressLine: String(form.get("addressLine") ?? "").trim(),
+      name: normalizeHalfWidthSpaces(String(form.get("name") ?? "")),
+      nameKana: normalizeHalfWidthSpaces(String(form.get("nameKana") ?? "")),
+      email: removeAllSpaces(String(form.get("email") ?? "")),
+      phone: removeAllSpaces(String(form.get("phone") ?? "")),
+      prefecture: removeAllSpaces(String(form.get("prefecture") ?? "")),
+      city: removeAllSpaces(String(form.get("city") ?? "")),
+      town: removeAllSpaces(String(form.get("town") ?? "")),
+      addressLine: normalizeHalfWidthSpaces(String(form.get("addressLine") ?? "")),
       website: String(form.get("website") ?? "").trim(),
       startedAt: startedAt.current,
     };
