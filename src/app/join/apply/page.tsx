@@ -26,6 +26,7 @@ export default function MembershipApplicationPage() {
     const payload = {
       submissionToken: submissionToken.current,
       name: String(form.get("name") ?? ""),
+      nameKana: String(form.get("nameKana") ?? ""),
       email: String(form.get("email") ?? ""),
       phone: String(form.get("phone") ?? ""),
       prefecture: String(form.get("prefecture") ?? ""),
@@ -121,6 +122,20 @@ export default function MembershipApplicationPage() {
                 氏名 <span className="text-red-700">必須</span>
               </label>
               <input id="name" name="name" required autoComplete="name" className={inputClass} />
+            </div>
+
+            <div>
+              <label htmlFor="nameKana" className="font-bold">
+                氏名ふりがな <span className="text-red-700">必須</span>
+              </label>
+              <input
+                id="nameKana"
+                name="nameKana"
+                required
+                autoComplete="off"
+                placeholder="たべい かつあき"
+                className={inputClass}
+              />
             </div>
 
             <div>
