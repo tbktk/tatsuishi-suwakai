@@ -67,7 +67,7 @@ export default function ContactPage() {
     try {
       const response = await fetch(`${apiBaseUrl}/api/suwakai/inquiries`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
         body: JSON.stringify(payload),
       });
 
@@ -82,11 +82,14 @@ export default function ContactPage() {
 
       setStatus("success");
     } catch (error) {
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "送信に失敗しました。時間をおいて再度お試しください。",
-      );
+      const message =
+        error instanceof TypeError
+          ? "送信できませんでした。時間をおいて再度お試しください。"
+          : error instanceof Error
+            ? error.message
+            : "送信できませんでした。時間をおいて再度お試しください。";
+
+      setErrorMessage(message);
       setStatus("error");
     }
   }
