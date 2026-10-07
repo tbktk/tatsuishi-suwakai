@@ -457,25 +457,6 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-center sm:p-6">
-          <p className="text-xs font-bold tracking-[0.16em] text-emerald-800">
-            立石で子育てをしている皆さまへ
-          </p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900">
-            諏訪会員を募集しています
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl leading-7 text-slate-700">
-            子どもと一緒に、地域に顔なじみを増やしませんか。
-            諏訪会の活動や、地域とつながることの魅力をご紹介しています。
-          </p>
-          <a
-            href="./join/"
-            className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-800 px-6 py-3 font-bold text-white shadow-sm transition hover:bg-emerald-900"
-          >
-            会員募集ページを見る
-          </a>
-        </section>
-
         <footer className="px-2 py-4 text-center text-sm text-slate-500">
           <p className="font-semibold text-slate-700">立石諏訪会</p>
           <p className="mt-1">前橋まつり 神輿参加者向け案内</p>
