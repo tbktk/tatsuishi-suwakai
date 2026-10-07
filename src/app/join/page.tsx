@@ -1,0 +1,258 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "諏訪会員募集 | 立石諏訪会",
+  description:
+    "前橋市総社町立石で暮らす子育て世帯の皆さまへ。立石諏訪会の活動や、地域とつながることの魅力をご紹介します。",
+};
+
+const benefits = [
+  {
+    title: "子どもに、地域の顔なじみを",
+    body: "家と園・学校だけではなく、近所にも知っている大人や子どもがいる。そんなつながりを、地域の行事を通じて少しずつつくれます。",
+    icon: "子",
+  },
+  {
+    title: "親にも、近所のつながりを",
+    body: "同じ地域で暮らす人と顔を合わせる機会が増えると、地域のことを知るきっかけも増えていきます。",
+    icon: "親",
+  },
+  {
+    title: "立石を、もっと身近な場所に",
+    body: "お祭りなどの地域行事に参加すると、普段暮らしている立石の人や活動が、ぐっと身近になります。",
+    icon: "町",
+  },
+];
+
+const recommendedFor = [
+  "立石で子育てをしている方",
+  "引っ越してきて、地域とのつながりをつくりたい方",
+  "子どもに地域の行事や人との交流を経験させたい方",
+  "近所に親子で顔なじみを増やしたい方",
+];
+
+export default function JoinPage() {
+  return (
+    <main className="min-h-screen bg-stone-50 text-slate-900">
+      <section className="overflow-hidden border-b border-emerald-900/10 bg-[linear-gradient(145deg,#f0fdf4_0%,#ecfdf5_48%,#fefce8_100%)]">
+        <div className="mx-auto max-w-4xl px-5 py-6 sm:px-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 underline decoration-emerald-300 underline-offset-4"
+          >
+            <span aria-hidden="true">←</span>
+            立石諏訪会
+          </Link>
+        </div>
+
+        <div className="mx-auto max-w-4xl px-5 pb-14 pt-8 sm:px-8 sm:pb-20 sm:pt-12">
+          <p className="text-sm font-bold tracking-[0.16em] text-emerald-800">
+            立石で子育てをしている皆さまへ
+          </p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[1.2] tracking-tight text-slate-950 sm:text-6xl">
+            子どもと一緒に、
+            <span className="block text-emerald-800">地域に顔なじみを。</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg sm:leading-9">
+            立石諏訪会では、前橋まつりなどの地域行事を通じて、
+            同じ地域で暮らす人どうしが顔を合わせる機会があります。
+            子どもにとっても、親にとっても、住んでいる場所に知っている人が増えることは、
+            地域を少し身近に感じるきっかけになります。
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#about"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-800 px-6 py-3 text-center font-bold text-white shadow-sm transition hover:bg-emerald-900"
+            >
+              諏訪会について知る
+            </a>
+            <Link
+              href="/"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-emerald-800/20 bg-white px-6 py-3 text-center font-bold text-emerald-900 shadow-sm transition hover:bg-emerald-50"
+            >
+              活動の様子を見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-8 sm:py-12">
+        <section
+          id="about"
+          aria-labelledby="about-heading"
+          className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-9"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-emerald-700">
+            ABOUT SUWAKAI
+          </p>
+          <h2
+            id="about-heading"
+            className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
+          >
+            諏訪会は、立石の地域活動を支えるつながりです
+          </h2>
+          <p className="mt-5 leading-8 text-slate-700">
+            立石諏訪会は、地域の行事や活動を通じて、立石で暮らす人どうしが関わる場のひとつです。
+            前橋まつりでは「諏訪連」として神輿に参加するなど、地域の皆さんと一緒に活動しています。
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            地域の会というと少し堅く感じるかもしれませんが、
+            まずは「近所に知っている人が増える場所」と考えていただければ十分です。
+          </p>
+        </section>
+
+        <section aria-labelledby="benefits-heading">
+          <div className="px-2">
+            <p className="text-xs font-bold tracking-[0.16em] text-amber-700">
+              FAMILY &amp; COMMUNITY
+            </p>
+            <h2
+              id="benefits-heading"
+              className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
+            >
+              子育て世帯にとっての、地域とのつながり
+            </h2>
+          </div>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {benefits.map((benefit) => (
+              <article
+                key={benefit.title}
+                className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-lg font-black text-emerald-900">
+                  {benefit.icon}
+                </div>
+                <h3 className="mt-5 text-xl font-black leading-snug">
+                  {benefit.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">{benefit.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="scene-heading"
+          className="overflow-hidden rounded-3xl bg-slate-900 text-white"
+        >
+          <div className="p-6 sm:p-9">
+            <p className="text-xs font-bold tracking-[0.16em] text-emerald-300">
+              LOCAL EXPERIENCE
+            </p>
+            <h2
+              id="scene-heading"
+              className="mt-2 max-w-2xl text-2xl font-black leading-tight sm:text-3xl"
+            >
+              子どものころの「地元の思い出」を、立石で
+            </h2>
+            <p className="mt-5 max-w-2xl leading-8 text-slate-200">
+              お祭りのにぎわい、近所の人とのあいさつ、地域で一緒に何かをする経験。
+              大きな特別行事でなくても、そうした積み重ねが子どもにとっての「地元」になっていきます。
+            </p>
+            <Link
+              href="/"
+              className="mt-6 inline-flex items-center gap-2 font-bold text-emerald-300 underline decoration-emerald-500 underline-offset-4"
+            >
+              前橋まつりでの活動を見る
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="recommended-heading"
+          className="rounded-3xl border border-amber-200 bg-amber-50 p-6 sm:p-9"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-amber-800">
+            こんな方へ
+          </p>
+          <h2
+            id="recommended-heading"
+            className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
+          >
+            ひとつでも当てはまったら、諏訪会を知ってみてください
+          </h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {recommendedFor.map((item) => (
+              <li
+                key={item}
+                className="flex gap-3 rounded-2xl bg-white/80 p-4 leading-7 text-slate-800"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-200 text-sm font-black text-amber-900"
+                >
+                  ✓
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="before-join-heading"
+          className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-9"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-sky-700">
+            入会をご検討の方へ
+          </p>
+          <h2
+            id="before-join-heading"
+            className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
+          >
+            分からないことは、入会前に確認できます
+          </h2>
+          <p className="mt-5 leading-8 text-slate-700">
+            会費、参加方法、行事での役割など、入会にあたって気になることは、
+            実際の運営内容を確認したうえでご案内するのが確実です。
+          </p>
+          <div className="mt-5 rounded-2xl bg-slate-50 p-5">
+            <p className="font-bold text-slate-900">このページで今後ご案内できる内容</p>
+            <p className="mt-2 text-sm leading-7 text-slate-600">
+              入会方法・会費・活動頻度・問い合わせ先などは、内容を確認後にこのページへ掲載します。
+            </p>
+          </div>
+        </section>
+
+        <section className="rounded-3xl bg-[linear-gradient(135deg,#065f46_0%,#047857_100%)] p-6 text-white shadow-sm sm:p-9">
+          <p className="text-sm font-bold text-emerald-100">
+            まずは、立石諏訪会の活動を知るところから。
+          </p>
+          <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
+            地域とのつながりは、少しずつで構いません。
+          </h2>
+          <p className="mt-4 max-w-2xl leading-8 text-emerald-50">
+            どんな人が、どんなふうに活動しているのか。
+            まずは現在公開している活動案内をご覧ください。
+          </p>
+          <Link
+            href="/"
+            className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 font-black text-emerald-900 shadow-sm transition hover:bg-emerald-50"
+          >
+            立石諏訪会の活動を見る
+          </Link>
+        </section>
+
+        <footer className="px-2 py-4 text-center text-sm text-slate-500">
+          <p className="font-semibold text-slate-700">立石諏訪会</p>
+          <p className="mt-1">諏訪会員募集</p>
+          <p className="mt-3 text-xs text-slate-400">
+            制作：
+            <a
+              href="https://wind-shift.jp/local"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4"
+            >
+              WindShift
+            </a>
+          </p>
+        </footer>
+      </div>
+    </main>
+  );
+}
