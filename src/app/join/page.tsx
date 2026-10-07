@@ -184,17 +184,35 @@ export default function JoinPage() {
             id="before-join-heading"
             className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
           >
-            分からないことは、入会前に確認できます
+            入会希望の方も、まず確認したい方もこちらから
           </h2>
           <p className="mt-5 leading-8 text-slate-700">
-            会費、参加方法、行事での役割など、入会にあたって気になることは、
-            実際の運営内容を確認したうえでご案内するのが確実です。
+            入会をご希望の場合は、住所など必要事項を入力してお申し込みください。
+            お住まいの地域などを確認したうえで、諏訪会からご連絡します。
           </p>
-          <div className="mt-5 rounded-2xl bg-slate-50 p-5">
-            <p className="font-bold text-slate-900">このページで今後ご案内できる内容</p>
-            <p className="mt-2 text-sm leading-7 text-slate-600">
-              入会方法・会費・活動頻度・問い合わせ先などは、内容を確認後にこのページへ掲載します。
-            </p>
+
+          <div className="mt-7 grid gap-4 sm:grid-cols-2">
+            <a
+              href="./apply/"
+              className="rounded-2xl bg-emerald-800 p-5 text-white shadow-sm transition hover:bg-emerald-900"
+            >
+              <p className="text-lg font-black">入会を申し込む</p>
+              <p className="mt-2 text-sm leading-6 text-emerald-50">
+                氏名・連絡先・住所を入力して申込みを送信します。
+              </p>
+              <p className="mt-4 font-bold">申込みフォームへ →</p>
+            </a>
+
+            <a
+              href="../contact/"
+              className="rounded-2xl border border-sky-200 bg-sky-50 p-5 text-slate-900 shadow-sm transition hover:bg-sky-100"
+            >
+              <p className="text-lg font-black">まず質問・相談したい</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                活動内容や入会について、確認したいことを送れます。
+              </p>
+              <p className="mt-4 font-bold text-sky-800">問い合わせフォームへ →</p>
+            </a>
           </div>
         </section>
 
@@ -206,7 +224,7 @@ export default function JoinPage() {
             地域とのつながりは、少しずつで構いません。
           </h2>
           <p className="mt-4 max-w-2xl leading-8 text-emerald-50">
-            入会方法や会費、活動頻度などの詳細は、内容を確認したうえでこのページに追加していきます。
+            入会を希望される方は申込みフォームへ、まだ確認したいことがある方は問い合わせフォームへお進みください。
           </p>
         </section>
 
