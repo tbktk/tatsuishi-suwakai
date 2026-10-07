@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -37,13 +36,7 @@ export default function JoinPage() {
     <main className="min-h-screen bg-stone-50 text-slate-900">
       <section className="overflow-hidden border-b border-emerald-900/10 bg-[linear-gradient(145deg,#f0fdf4_0%,#ecfdf5_48%,#fefce8_100%)]">
         <div className="mx-auto max-w-4xl px-5 py-6 sm:px-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 underline decoration-emerald-300 underline-offset-4"
-          >
-            <span aria-hidden="true">←</span>
-            立石諏訪会
-          </Link>
+          <p className="text-sm font-bold text-emerald-800">立石諏訪会</p>
         </div>
 
         <div className="mx-auto max-w-4xl px-5 pb-14 pt-8 sm:px-8 sm:pb-20 sm:pt-12">
@@ -68,12 +61,6 @@ export default function JoinPage() {
             >
               諏訪会について知る
             </a>
-            <Link
-              href="/"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-emerald-800/20 bg-white px-6 py-3 text-center font-bold text-emerald-900 shadow-sm transition hover:bg-emerald-50"
-            >
-              活動の様子を見る
-            </Link>
           </div>
         </div>
       </section>
@@ -152,13 +139,6 @@ export default function JoinPage() {
               お祭りのにぎわい、近所の人とのあいさつ、地域で一緒に何かをする経験。
               大きな特別行事でなくても、そうした積み重ねが子どもにとっての「地元」になっていきます。
             </p>
-            <Link
-              href="/"
-              className="mt-6 inline-flex items-center gap-2 font-bold text-emerald-300 underline decoration-emerald-500 underline-offset-4"
-            >
-              前橋まつりでの活動を見る
-              <span aria-hidden="true">→</span>
-            </Link>
           </div>
         </section>
 
@@ -220,21 +200,14 @@ export default function JoinPage() {
 
         <section className="rounded-3xl bg-[linear-gradient(135deg,#065f46_0%,#047857_100%)] p-6 text-white shadow-sm sm:p-9">
           <p className="text-sm font-bold text-emerald-100">
-            まずは、立石諏訪会の活動を知るところから。
+            立石での暮らしに、地域とのつながりを。
           </p>
           <h2 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">
             地域とのつながりは、少しずつで構いません。
           </h2>
           <p className="mt-4 max-w-2xl leading-8 text-emerald-50">
-            どんな人が、どんなふうに活動しているのか。
-            まずは現在公開している活動案内をご覧ください。
+            入会方法や会費、活動頻度などの詳細は、内容を確認したうえでこのページに追加していきます。
           </p>
-          <Link
-            href="/"
-            className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 font-black text-emerald-900 shadow-sm transition hover:bg-emerald-50"
-          >
-            立石諏訪会の活動を見る
-          </Link>
         </section>
 
         <footer className="px-2 py-4 text-center text-sm text-slate-500">
