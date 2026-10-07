@@ -54,14 +54,6 @@ export default function JoinPage() {
             地域を少し身近に感じるきっかけになります。
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#about"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-800 px-6 py-3 text-center font-bold text-white shadow-sm transition hover:bg-emerald-900"
-            >
-              諏訪会について知る
-            </a>
-          </div>
         </div>
       </section>
 
