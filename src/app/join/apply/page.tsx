@@ -56,15 +56,15 @@ export default function MembershipApplicationPage() {
 
     const payload = {
       submissionToken: submissionToken.current,
-      name: String(form.get("name") ?? ""),
-      nameKana: String(form.get("nameKana") ?? ""),
-      email: String(form.get("email") ?? ""),
-      phone: String(form.get("phone") ?? ""),
-      prefecture: String(form.get("prefecture") ?? ""),
-      city: String(form.get("city") ?? ""),
-      town: String(form.get("town") ?? ""),
-      addressLine: String(form.get("addressLine") ?? ""),
-      website: String(form.get("website") ?? ""),
+      name: String(form.get("name") ?? "").trim(),
+      nameKana: String(form.get("nameKana") ?? "").trim(),
+      email: String(form.get("email") ?? "").trim(),
+      phone: String(form.get("phone") ?? "").trim(),
+      prefecture: String(form.get("prefecture") ?? "").trim(),
+      city: String(form.get("city") ?? "").trim(),
+      town: String(form.get("town") ?? "").trim(),
+      addressLine: String(form.get("addressLine") ?? "").trim(),
+      website: String(form.get("website") ?? "").trim(),
       startedAt: startedAt.current,
     };
 
@@ -171,6 +171,9 @@ export default function MembershipApplicationPage() {
                 name="nameKana"
                 required
                 autoComplete="off"
+                inputMode="text"
+                pattern="[ぁ-ゖ ]+"
+                title="ひらがなまたは半角スペースのみで入力してください。"
                 placeholder="すわ たろう"
                 className={inputClass}
               />
