@@ -57,7 +57,7 @@ export default function MembershipApplicationPage() {
     const payload = {
       submissionToken: submissionToken.current,
       name: String(form.get("name") ?? "").trim(),
-      nameKana: String(form.get("nameKana") ?? "").trim(),
+      nameKana: String(form.get("nameKana") ?? "").replace(/　/g, " ").trim(),
       email: String(form.get("email") ?? "").trim(),
       phone: String(form.get("phone") ?? "").trim(),
       prefecture: String(form.get("prefecture") ?? "").trim(),
@@ -175,6 +175,12 @@ export default function MembershipApplicationPage() {
                 pattern="[ぁ-ゖ ]+"
                 title="ひらがなまたは半角スペースのみで入力してください。"
                 placeholder="すわ たろう"
+                onInput={(event) => {
+                  event.currentTarget.value = event.currentTarget.value.replace(
+                    /　/g,
+                    " ",
+                  );
+                }}
                 className={inputClass}
               />
             </div>
@@ -190,6 +196,7 @@ export default function MembershipApplicationPage() {
                 required
                 autoComplete="email"
                 placeholder="suwa.taro@example.com"
+                title="正しいメールアドレス形式で入力してください。"
                 className={inputClass}
               />
             </div>
@@ -204,8 +211,11 @@ export default function MembershipApplicationPage() {
                 type="tel"
                 required
                 autoComplete="tel"
-                inputMode="tel"
+                inputMode="numeric"
+                pattern="[0-9]{10,11}"
+                maxLength={11}
                 placeholder="09012345678"
+                title="電話番号はハイフンなしの10〜11桁の数字で入力してください。"
                 className={inputClass}
               />
             </div>
