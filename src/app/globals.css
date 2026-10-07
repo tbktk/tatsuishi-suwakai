@@ -32,7 +32,3 @@ body {
 .font-time {
   font-family: var(--font-roboto-mono), monospace;
 }
-
-a {
-  color: inherit;
-}
