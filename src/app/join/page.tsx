@@ -48,7 +48,7 @@ export default function JoinPage() {
             <span className="block text-emerald-800">地域に顔なじみを。</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg sm:leading-9">
-            立石諏訪会では、前橋まつりなどの地域行事を通じて、
+            立石諏訪会では、地域の行事を通じて、
             同じ地域で暮らす人どうしが顔を合わせる機会があります。
             子どもにとっても、親にとっても、住んでいる場所に知っている人が増えることは、
             地域を少し身近に感じるきっかけになります。
