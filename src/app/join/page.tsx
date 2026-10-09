@@ -135,6 +135,31 @@ export default function JoinPage() {
         </section>
 
         <section
+          aria-labelledby="parent-life-heading"
+          className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-9"
+        >
+          <p className="text-xs font-bold tracking-[0.16em] text-sky-700">
+            FOR PARENTS, TOO
+          </p>
+          <h2
+            id="parent-life-heading"
+            className="mt-2 text-2xl font-black leading-tight sm:text-3xl"
+          >
+            親にとっても、地域に楽しみがある暮らしを
+          </h2>
+          <p className="mt-5 leading-8 text-slate-700">
+            仕事や子育てで毎日が慌ただしくなると、気づけば家と職場・学校を行き来するだけになり、
+            地域の人とゆっくり関わる機会は少なくなりがちです。
+            そんな中で、地域の行事や顔なじみとの時間が、思いがけず日々の楽しみのひとつになることがあります。
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            また、子どもが小さいうちに、親子で地域の行事に参加できる時間はずっと続くわけではありません。
+            数年後に「あの頃、参加しておけばよかった」と思うより、
+            無理のない範囲で今から地域とのつながりをつくってみるのもひとつです。
+          </p>
+        </section>
+
+        <section
           aria-labelledby="recommended-heading"
           className="rounded-3xl border border-amber-200 bg-amber-50 p-6 sm:p-9"
         >
