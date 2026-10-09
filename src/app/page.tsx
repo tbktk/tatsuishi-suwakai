@@ -172,6 +172,15 @@ export default function Home() {
                 集合時刻・当日の作業・服装・注意事項をまとめています。
                 当日はこのページをご確認ください。
               </p>
+              <a
+                href="https://maebashi-festival.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-red-50 underline decoration-red-200/60 underline-offset-4 transition hover:text-white"
+              >
+                前橋まつり公式サイトを見る
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
 
             <div className="mt-6 shrink-0 sm:mt-0 sm:w-48">
