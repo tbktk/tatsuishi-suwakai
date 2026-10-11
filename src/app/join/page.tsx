@@ -53,6 +53,18 @@ export default function JoinPage() {
             子どもにとっても、親にとっても、住んでいる場所に知っている人が増えることは、
             地域を少し身近に感じるきっかけになります。
           </p>
+          <div className="mt-8">
+            <a
+              href="./apply/"
+              className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-emerald-800 px-8 py-4 text-base font-bold text-white shadow-lg shadow-emerald-900/15 transition hover:bg-emerald-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-800 sm:w-auto"
+            >
+              入会申込フォームへ進む
+              <span aria-hidden="true">→</span>
+            </a>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              フォーム送信後、内容を確認してご連絡します。
+            </p>
+          </div>
         </div>
       </section>
 
