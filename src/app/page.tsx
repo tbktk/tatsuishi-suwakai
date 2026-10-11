@@ -33,7 +33,7 @@ export default function Home() {
       <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#101f28] text-white sm:min-h-[740px]">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="pointer-events-none absolute inset-0 bg-cover bg-[position:76%_center] bg-no-repeat sm:bg-center"
           style={{ backgroundImage: "url('/images/maebashi-fes-20261010-001.jpg')" }}
         />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#101f28]/95 via-[#101f28]/75 to-[#101f28]/25" />
