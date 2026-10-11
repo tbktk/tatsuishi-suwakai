@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const assetBasePath = process.env.GITHUB_ACTIONS === "true" ? "/tatsuishi-suwakai" : "";
+
 const activities = [
   {
     name: "前橋まつり・神輿かつぎ",
@@ -42,7 +44,7 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-cover bg-[position:76%_center] bg-no-repeat sm:bg-center"
           style={{
-            backgroundImage: "url('/images/maebashi-fes-20261010-001.jpg')",
+            backgroundImage: `url("${assetBasePath}/images/maebashi-fes-20261010-001.jpg")`,
           }}
         />
         <div
