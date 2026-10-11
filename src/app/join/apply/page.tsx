@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
 import type { FormEvent } from "react";
+import { useRef, useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -71,7 +71,9 @@ export default function MembershipApplicationPage() {
       prefecture: removeAllSpaces(String(form.get("prefecture") ?? "")),
       city: removeAllSpaces(String(form.get("city") ?? "")),
       town: removeAllSpaces(String(form.get("town") ?? "")),
-      addressLine: normalizeHalfWidthSpaces(String(form.get("addressLine") ?? "")),
+      addressLine: normalizeHalfWidthSpaces(
+        String(form.get("addressLine") ?? ""),
+      ),
       website: String(form.get("website") ?? "").trim(),
       startedAt: startedAt.current,
     };
@@ -116,7 +118,9 @@ export default function MembershipApplicationPage() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl font-black text-emerald-800">
             ✓
           </div>
-          <h1 className="mt-5 text-3xl font-black">入会申込みを受け付けました</h1>
+          <h1 className="mt-5 text-3xl font-black">
+            入会申込みを受け付けました
+          </h1>
           <p className="mt-4 leading-8 text-slate-600">
             入力内容を確認のうえ、諏訪会からご連絡します。
             送信した時点で入会が確定するものではありません。
@@ -237,7 +241,9 @@ export default function MembershipApplicationPage() {
               </legend>
               <div className="mt-2 grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="prefecture" className="text-sm font-bold">都道府県</label>
+                  <label htmlFor="prefecture" className="text-sm font-bold">
+                    都道府県
+                  </label>
                   <input
                     id="prefecture"
                     name="prefecture"
@@ -249,7 +255,9 @@ export default function MembershipApplicationPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="city" className="text-sm font-bold">市区町村</label>
+                  <label htmlFor="city" className="text-sm font-bold">
+                    市区町村
+                  </label>
                   <input
                     id="city"
                     name="city"
@@ -261,7 +269,9 @@ export default function MembershipApplicationPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="town" className="text-sm font-bold">町名</label>
+                  <label htmlFor="town" className="text-sm font-bold">
+                    町名
+                  </label>
                   <input
                     id="town"
                     name="town"
@@ -273,7 +283,9 @@ export default function MembershipApplicationPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="addressLine" className="text-sm font-bold">番地・建物名</label>
+                  <label htmlFor="addressLine" className="text-sm font-bold">
+                    番地・建物名
+                  </label>
                   <input
                     id="addressLine"
                     name="addressLine"
@@ -288,11 +300,19 @@ export default function MembershipApplicationPage() {
 
             <div className="hidden" aria-hidden="true">
               <label htmlFor="website">Website</label>
-              <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+              <input
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </div>
 
             {status === "error" && (
-              <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800">
+              <p
+                role="alert"
+                className="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800"
+              >
                 {errorMessage}
               </p>
             )}
