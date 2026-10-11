@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-const assetBasePath = process.env.GITHUB_ACTIONS === "true" ? "/tatsuishi-suwakai" : "";
+const assetBasePath =
+  process.env.GITHUB_ACTIONS === "true" ? "/tatsuishi-suwakai" : "";
 
 const activities = [
   {
