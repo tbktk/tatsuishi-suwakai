@@ -32,7 +32,7 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-6xl px-5 pb-20 pt-44 sm:px-10 sm:pb-28">
           <p className="text-xs font-bold tracking-[0.32em] text-[#9fbac5] sm:text-sm">TATSUISHI SUWAKAI / MAEBASHI</p>
           <h1 className="font-[family-name:var(--font-zen-antique)] mt-8 text-[clamp(2.9rem,8vw,6rem)] font-normal leading-[1.23] tracking-tight">
-            この街で、<br />つながる。<br /><span className="text-[#9ec2d1]">楽しむ。</span>
+            この町で、<br />つながる。<br /><span className="text-[#9ec2d1]">楽しむ。</span>
           </h1>
           <p className="mt-8 max-w-xl text-sm leading-8 text-[#e0e9ec] sm:text-base">
             立石諏訪会は、前橋市総社町立石で、祭りや地域の活動を通じて人がつながる場です。
