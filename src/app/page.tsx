@@ -31,9 +31,12 @@ export default function Home() {
       </header>
 
       <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#101f28] text-white sm:min-h-[740px]">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_48%,#405863_0%,transparent_55%),linear-gradient(140deg,#101f28_10%,#172d35_58%,#0d161c_100%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-32 h-[520px] w-[520px] rotate-45 border border-white/15 sm:right-[-70px] sm:h-[680px] sm:w-[680px]" />
-        <div aria-hidden="true" className="pointer-events-none absolute right-6 top-48 h-[350px] w-[350px] rotate-45 border border-white/10 sm:right-36 sm:h-[450px] sm:w-[450px]" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/maebashi-fes-20261010-001.jpg')" }}
+        />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#101f28]/95 via-[#101f28]/75 to-[#101f28]/25" />
         <div className="relative mx-auto w-full max-w-6xl px-5 pb-20 pt-44 sm:px-10 sm:pb-28">
           <p className="text-xs font-bold tracking-[0.32em] text-[#9fbac5] sm:text-sm">TATSUISHI SUWAKAI / MAEBASHI</p>
           <h1 className="mt-8 text-[clamp(2.9rem,8vw,6rem)] font-black leading-[1.23] tracking-tight">
