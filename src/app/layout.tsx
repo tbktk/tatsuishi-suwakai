@@ -9,6 +9,7 @@ const notoSansJp = Noto_Sans_JP({
 });
 const zenAntique = Zen_Antique({
   variable: "--font-zen-antique",
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
