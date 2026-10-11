@@ -14,7 +14,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#f6f7f7] text-[#142127]">
       <header className="absolute inset-x-0 top-0 z-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-6 sm:px-10">
-          <Link href="/" className="text-base font-black tracking-[0.14em] text-white sm:text-lg">立石諏訪会</Link>
+          <Link href="/" className="font-[family-name:var(--font-zen-kaku-gothic)] text-lg font-black tracking-[0.08em] text-white sm:text-xl">立石諏訪会</Link>
           <nav aria-label="メインナビゲーション" className="flex items-center gap-4 text-xs font-bold text-white sm:gap-7 sm:text-sm">
             <Link href="/events" className="hover:underline">行事案内</Link>
             <Link href="/join" className="rounded-full border border-white/60 px-4 py-2 hover:bg-white hover:text-[#142127]">会員募集 ↗</Link>
