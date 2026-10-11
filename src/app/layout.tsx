@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Roboto_Mono } from "next/font/google";
+import { Noto_Sans_JP, Roboto_Mono, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
+  display: "swap",
+});
+const zenKakuGothic = Zen_Kaku_Gothic_New({
+  variable: "--font-zen-kaku-gothic",
+  subsets: ["latin"],
+  weight: ["700", "900"],
   display: "swap",
 });
 const robotoMono = Roboto_Mono({
@@ -20,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ja" className={`${notoSansJp.variable} ${robotoMono.variable} h-full antialiased`}>
+    <html lang="ja" className={`${notoSansJp.variable} ${robotoMono.variable} ${zenKakuGothic.variable} h-full antialiased`}>
       <body className="min-h-full">{children}</body>
     </html>
   );
