@@ -2,18 +2,10 @@ import Link from "next/link";
 
 const activities = [
   {
-    no: "01",
     name: "前橋まつり・神輿かつぎ",
     text: "立石諏訪会（諏訪連）として参加する、地域の仲間と力を合わせる行事です。",
     href: "/events/mikoshi",
     action: "神輿かつぎの案内を見る",
-  },
-  {
-    no: "02",
-    name: "地域の行事",
-    text: "地域で行われる行事や活動への入口をまとめています。",
-    href: "/events",
-    action: "行事一覧を見る",
   },
 ];
 
@@ -69,8 +61,8 @@ export default function Home() {
           <div className="mt-4 flex flex-wrap items-end justify-between gap-4"><h2 className="text-3xl font-black sm:text-4xl">活動・行事</h2><Link href="/events" className="text-sm font-bold text-[#244f60] underline underline-offset-4">行事一覧を見る ↗</Link></div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {activities.map((item) => (
-              <Link key={item.no} href={item.href} className="group flex min-h-64 flex-col justify-between rounded-2xl border border-[#dfe5e8] bg-[#f6f7f7] p-7 transition hover:-translate-y-1 hover:border-[#6d95a3] hover:shadow-xl sm:p-9">
-                <span className="font-mono text-xs font-bold text-[#61818f]">{item.no} / ACTIVITY</span>
+              <Link key={item.href} href={item.href} className="group flex min-h-64 flex-col justify-between rounded-2xl border border-[#dfe5e8] bg-[#f6f7f7] p-7 transition hover:-translate-y-1 hover:border-[#6d95a3] hover:shadow-xl sm:p-9">
+                <span className="text-xs font-bold tracking-[0.14em] text-[#61818f]">前橋まつり</span>
                 <div><h3 className="text-2xl font-black">{item.name}</h3><p className="mt-4 max-w-md text-sm leading-7 text-[#51616a]">{item.text}</p><p className="mt-6 text-sm font-bold text-[#244f60]">{item.action} <span aria-hidden="true">↗</span></p></div>
               </Link>
             ))}
