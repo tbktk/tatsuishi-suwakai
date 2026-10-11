@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const schedule = [
   { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
@@ -310,9 +311,11 @@ export default function Home() {
             }
             className="mt-4 block w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-left shadow-sm transition hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
           >
-            <img
+            <Image
               src="../../images/mikoshi-route.png"
               alt="大人みこし行進順路"
+              width={1200}
+              height={900}
               className="h-auto w-full"
             />
           </button>
@@ -374,9 +377,11 @@ export default function Home() {
             className="absolute inset-0 bg-black/70"
           />
           <div className="relative z-10 max-h-[90vh] w-full max-w-5xl overflow-auto rounded-2xl bg-white p-3 shadow-2xl">
-            <img
+            <Image
               src={popupImage.src}
               alt={popupImage.alt}
+              width={1200}
+              height={900}
               className="h-auto w-full rounded-xl"
             />
           </div>
