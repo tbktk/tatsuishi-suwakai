@@ -76,7 +76,7 @@ export default function Home() {
           <div className="rounded-2xl bg-white p-7 shadow-sm sm:p-10"><p className="text-sm font-bold text-[#547381]">立石諏訪会 会員募集</p><p className="mt-4 text-2xl font-black leading-snug">はじめての方も、<br />まずは活動を知るところから。</p><Link href="/join" className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#172d35] px-6 text-sm font-bold text-white hover:bg-[#315363]">会員募集ページを見る ↗</Link></div>
         </div>
       </section>
-      <footer className="bg-[#101f28] px-5 py-9 text-white sm:px-10"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4"><p className="text-sm font-bold tracking-[0.12em]">立石諏訪会</p><nav aria-label="フッターナビゲーション" className="flex gap-6 text-xs text-white/75"><Link href="/events">行事案内</Link><Link href="/join">会員募集</Link></nav></div></footer>
+      <footer className="bg-[#101f28] px-5 py-9 text-white sm:px-10"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4"><p className="font-[family-name:var(--font-zen-antique)] text-lg font-normal tracking-[0.08em]">立石諏訪会</p><nav aria-label="フッターナビゲーション" className="flex gap-6 text-xs text-white/75"><Link href="/events">行事案内</Link><Link href="/join">会員募集</Link></nav></div></footer>
     </main>
   );
 }
