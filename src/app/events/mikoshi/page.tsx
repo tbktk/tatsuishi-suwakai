@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 const schedule = [
   { time: "12:00", label: "本部役員・班長以上", detail: "諏訪神社集合" },
@@ -71,8 +71,18 @@ export default function Home() {
   const [isGroupListOpen, setIsGroupListOpen] = useState(false);
   return (
     <main className="min-h-screen bg-stone-50 text-slate-900">
-      <div className="bg-[#172d35] px-5 py-3 text-center text-sm text-white"><Link href="/" className="font-bold underline underline-offset-4">立石諏訪会トップへ戻る ↗</Link><span className="mx-3 text-white/40">/</span><Link href="/events" className="underline underline-offset-4">行事一覧</Link></div>
-      <p className="bg-amber-50 px-5 py-3 text-center text-sm font-bold leading-6 text-amber-950">このページは2026年10月10日に終了した行事の記録です。集合時刻などは開催当時の情報です。</p>
+      <div className="bg-[#172d35] px-5 py-3 text-center text-sm text-white">
+        <Link href="/" className="font-bold underline underline-offset-4">
+          立石諏訪会トップへ戻る ↗
+        </Link>
+        <span className="mx-3 text-white/40">/</span>
+        <Link href="/events" className="underline underline-offset-4">
+          行事一覧
+        </Link>
+      </div>
+      <p className="bg-amber-50 px-5 py-3 text-center text-sm font-bold leading-6 text-amber-950">
+        このページは2026年10月10日に終了した行事の記録です。集合時刻などは開催当時の情報です。
+      </p>
       <section className="border-b border-red-900/10 bg-[linear-gradient(135deg,#7f1d1d_0%,#991b1b_52%,#5f1212_100%)] text-white">
         <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
           <div className="sm:flex sm:items-start sm:justify-between sm:gap-8">
@@ -102,7 +112,9 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-6 shrink-0 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-red-50 sm:mt-0">2026年の開催記録</div>
+            <div className="mt-6 shrink-0 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-red-50 sm:mt-0">
+              2026年の開催記録
+            </div>
           </div>
         </div>
       </section>

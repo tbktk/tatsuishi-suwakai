@@ -21,12 +21,16 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: "立石諏訪会 | 前橋市総社町立石の地域活動",
-  description: "前橋市総社町立石の立石諏訪会。地域の行事や活動、会員募集についてご案内します。",
+  description:
+    "前橋市総社町立石の立石諏訪会。地域の行事や活動、会員募集についてご案内します。",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ja" className={`${notoSansJp.variable} ${robotoMono.variable} ${zenAntique.variable} h-full antialiased`}>
+    <html
+      lang="ja"
+      className={`${notoSansJp.variable} ${robotoMono.variable} ${zenAntique.variable} h-full antialiased`}
+    >
       <body className="min-h-full">{children}</body>
     </html>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
 import type { FormEvent } from "react";
+import { useRef, useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -101,7 +101,9 @@ export default function ContactPage() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-2xl font-black text-sky-800">
             ✓
           </div>
-          <h1 className="mt-5 text-3xl font-black">お問い合わせを受け付けました</h1>
+          <h1 className="mt-5 text-3xl font-black">
+            お問い合わせを受け付けました
+          </h1>
           <p className="mt-4 leading-8 text-slate-600">
             内容を確認のうえ、ご連絡します。
           </p>
@@ -143,37 +145,72 @@ export default function ContactPage() {
               <label htmlFor="name" className="font-bold">
                 氏名 <span className="text-red-700">必須</span>
               </label>
-              <input id="name" name="name" required autoComplete="name" className={inputClass} />
+              <input
+                id="name"
+                name="name"
+                required
+                autoComplete="name"
+                className={inputClass}
+              />
             </div>
 
             <div>
               <label htmlFor="email" className="font-bold">
                 メールアドレス <span className="text-red-700">必須</span>
               </label>
-              <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                className={inputClass}
+              />
             </div>
 
             <div>
               <label htmlFor="phone" className="font-bold">
-                電話番号 <span className="text-sm font-normal text-slate-500">任意</span>
+                電話番号{" "}
+                <span className="text-sm font-normal text-slate-500">任意</span>
               </label>
-              <input id="phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" className={inputClass} />
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                inputMode="tel"
+                className={inputClass}
+              />
             </div>
 
             <div>
               <label htmlFor="message" className="font-bold">
                 お問い合わせ内容 <span className="text-red-700">必須</span>
               </label>
-              <textarea id="message" name="message" required rows={7} className={inputClass} />
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={7}
+                className={inputClass}
+              />
             </div>
 
             <div className="hidden" aria-hidden="true">
               <label htmlFor="website">Website</label>
-              <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+              <input
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </div>
 
             {status === "error" && (
-              <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800">
+              <p
+                role="alert"
+                className="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800"
+              >
                 {errorMessage}
               </p>
             )}
