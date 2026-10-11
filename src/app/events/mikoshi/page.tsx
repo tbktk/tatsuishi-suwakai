@@ -68,11 +68,10 @@ type PopupImage = {
 export default function Home() {
   const [popupImage, setPopupImage] = useState<PopupImage | null>(null);
   const [isGroupListOpen, setIsGroupListOpen] = useState(false);
-  return () => controller.abort();
-  }, []);
-
   return (
-    <main className="min-h-screen bg-stone-50 text-slate-900">\n      <div className="bg-[#172d35] px-5 py-3 text-center text-sm text-white"><Link href="/" className="font-bold underline underline-offset-4">立石諏訪会トップへ戻る ↗</Link><span className="mx-3 text-white/40">/</span><Link href="/events" className="underline underline-offset-4">行事一覧</Link></div>\n      <p className="bg-amber-50 px-5 py-3 text-center text-sm font-bold leading-6 text-amber-950">このページは2026年10月10日に終了した行事の記録です。集合時刻などは開催当時の情報です。</p>
+    <main className="min-h-screen bg-stone-50 text-slate-900">
+      <div className="bg-[#172d35] px-5 py-3 text-center text-sm text-white"><Link href="/" className="font-bold underline underline-offset-4">立石諏訪会トップへ戻る ↗</Link><span className="mx-3 text-white/40">/</span><Link href="/events" className="underline underline-offset-4">行事一覧</Link></div>
+      <p className="bg-amber-50 px-5 py-3 text-center text-sm font-bold leading-6 text-amber-950">このページは2026年10月10日に終了した行事の記録です。集合時刻などは開催当時の情報です。</p>
       <section className="border-b border-red-900/10 bg-[linear-gradient(135deg,#7f1d1d_0%,#991b1b_52%,#5f1212_100%)] text-white">
         <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
           <div className="sm:flex sm:items-start sm:justify-between sm:gap-8">
